@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四川省宜宾市第三中学（大观校区）</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #003049;
+            --primary-red: #d62828;
+            --primary-gold: #f77f00;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #5c6bc0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', 'Microsoft YaHei', 'Segoe UI', serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            overflow-x: hidden;
+        }
+        
+        /* 页面头部 */
+        .header {
+            background: linear-gradient(rgba(0, 48, 73, 0.85), rgba(0, 48, 73, 0.9)), url('home-bg.jpg') center/cover no-repeat;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            z-index: 10;
+        }
+        
+        .school-name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+        
+        .school-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+        
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 25px;
+            border-radius: 10px;
+            min-width: 130px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background: var(--primary-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* 学校简介 */
+        .intro-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .badge-container {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .school-badge {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border: 5px solid var(--primary-gold);
+        }
+        
+        .school-badge img {
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
+        }
+        
+        .school-motto {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-top: 25px;
+            font-family: 'Noto Serif SC', serif;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .school-motto::before, .school-motto::after {
+            content: "✧";
+            margin: 0 10px;
+            color: var(--primary-red);
+        }
+        
+        .intro-text {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .intro-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .intro-text h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-red);
+        }
+        
+        .intro-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .achievement-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .achievement-table th,
+        .achievement-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .achievement-table th {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .achievement-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .achievement-table tr:hover {
+            background-color: #f0f7ff;
+        }
+        
+        /* 学校特色 */
+        .features-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-red);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-red);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        /* 领导班子 */
+        .leaders-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .leader-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .leader-img {
+            height: 300px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 4.5rem;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .leader-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .leader-name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+        
+        .leader-position {
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .leader-bio {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* 优秀教师展示区 */
+        .teachers-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .teacher-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .teacher-img {
+            height: 250px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 4.5rem;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .teacher-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .teacher-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+        
+        .teacher-subject {
+            font-size: 1.1rem;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .teacher-bio {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* 校园风光 */
+        .gallery-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 48, 73, 0.85);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        /* 联系方式 */
+        .contact-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 220px;
+        }
+        
+        .contact-icon {
+            font-size: 2.8rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+        
+        /* 友情链接 */
+        .links-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .links-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .link-card {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--primary-blue);
+            border-left: 4px solid var(--primary-red);
+        }
+        
+        .link-card:hover {
+            transform: translateX(10px);
+            background: #f0f7ff;
+        }
+        
+        .link-icon {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            color: var(--primary-red);
+        }
+        
+        .link-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-badge {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+        }
+        
+        .footer-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .footer-text {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .school-name {
+                font-size: 2.4rem;
+            }
+            
+            .school-subtitle {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                min-height: 350px;
+            }
+            
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .school-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .intro-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .school-name {
+                font-size: 1.8rem;
+            }
+            
+            .school-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .school-motto {
+                font-size: 1.3rem;
+            }
+            
+            .header-stats {
+                gap: 10px;
+            }
+            
+            .stat-item {
+                min-width: calc(50% - 20px);
+                padding: 10px 15px;
+            }
+            
+            .achievement-table {
+                font-size: 0.9rem;
+            }
+            
+            .achievement-table th,
+            .achievement-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="school-name">四川省宜宾市第三中学</h1>
+            <div class="school-subtitle">（大观校区）</div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-number">1926</div>
+                    <div class="stat-label">建校年份</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">230</div>
+                    <div class="stat-label">占地面积(亩)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4000+</div>
+                    <div class="stat-label">在校学生</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">72</div>
+                    <div class="stat-label">教学班级</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-item">首页</a>
+            <a href="#" class="nav-item">学校概况</a>
+            <a href="#" class="nav-item">新闻中心</a>
+            <a href="#" class="nav-item">教育教学</a>
+            <a href="#" class="nav-item">招生信息</a>
+            <a href="#" class="nav-item">联系我们</a>
+        </div>
+    </nav>
+
+    <!-- 学校简介 -->
+    <section class="intro-section">
+        <div class="badge-container">
+            <div class="school-badge">
+                <img src="new_img/xiao_hui_bai.png" alt="四川省宜宾市第三中学校徽">
+            </div>
+            <div class="school-motto">厚德博学 · 笃行致远</div>
+        </div>
+        
+        <div class="intro-text">
+            <h2>学校概况</h2>
+            <p>四川省宜宾市第三中学（大观校区）创建于1926年，是四川省一级示范性普通高中。学校位于宜宾市中心城区，占地230亩，环境优美，设施先进。秉承"厚德博学，笃行致远"的校训，坚持"立德树人、全面发展"的办学思想，致力于培养德智体美劳全面发展的社会主义建设者和接班人。</p>
+            
+            <p>学校师资力量雄厚，拥有特级教师25人，高级教师120人，省市学科带头人40余人。近年来，学校高考一本上线率超过60%，本科上线率达95%以上，为国家培养了大批优秀人才。</p>
+            
+            <table class="achievement-table">
+                <thead>
+                    <tr>
+                        <th>年份</th>
+                        <th>一本上线率</th>
+                        <th>本科上线率</th>
+                        <th>重点大学录取率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2023</td>
+                        <td>63.5%</td>
+                        <td>96.2%</td>
+                        <td>37.1%</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>62.3%</td>
+                        <td>95.8%</td>
+                        <td>35.7%</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>60.1%</td>
+                        <td>94.5%</td>
+                        <td>33.2%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 学校特色 -->
+    <section class="features-section">
+        <h2 class="section-title">办学特色</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <h3>悠久历史</h3>
+                <p>创建于1926年，近百年办学历史积淀了深厚的文化底蕴和教育传统，是宜宾市历史最悠久的中学之一。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>优质教学</h3>
+                <p>拥有省级示范性高中资质，特级教师占教师总数30%以上，实施分层教学和小班化教学模式。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3>科创特色</h3>
+                <p>拥有省级科技创新实验室，学生科技创新团队连续5年在全国青少年科技创新大赛中获奖。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <h3>国际视野</h3>
+                <p>与美、英、澳等多国学校建立合作关系，开设国际课程班，为学生提供多元发展路径。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 领导班子 -->
+    <section class="leaders-section">
+        <h2 class="section-title">领导班子</h2>
+        <div class="leaders-grid">
+            <div class="leader-card">
+                <div class="leader-img" style="background-image: url('new_img/xiao_zhang.png');">
+                </div>
+                <div class="leader-info">
+                    <div class="leader-name">陈中华</div>
+                    <div class="leader-position">校长 / 党委书记</div>
+                    <p class="leader-bio">教育管理学博士，四川省优秀教育工作者，有20余年教学管理经验。荣获"全国优秀校长"称号。在陈校长的领导下，学校连续五年高考成绩创历史新高。</p>
+                </div>
+            </div>
+            
+            <div class="leader-card">
+                <div class="leader-img" style="background-image: url('img/leader2.jpg');">
+                </div>
+                <div class="leader-info">
+                    <div class="leader-name">李华</div>
+                    <div class="leader-position">教学副校长</div>
+                    <p class="leader-bio">中学高级教师，省级骨干教师，主持多项省级教研课题。担任省高考命题组成员，具有丰富的教学管理经验。</p>
+                </div>
+            </div>
+            
+            <div class="leader-card">
+                <div class="leader-img" style="background-image: url('img/leader3.jpg');">
+                </div>
+                <div class="leader-info">
+                    <div class="leader-name">王伟</div>
+                    <div class="leader-position">德育副校长</div>
+                    <p class="leader-bio">全国优秀德育工作者，省德育工作先进个人。主编多部德育教材，具有丰富的德育工作经验，注重学生全面发展。</p>
+                </div>
+            </div>
+            
+            <div class="leader-card">
+                <div class="leader-img" style="background-image: url('img/leader4.jpg');">
+                </div>
+                <div class="leader-info">
+                    <div class="leader-name">刘芳</div>
+                    <div class="leader-position">行政副校长</div>
+                    <p class="leader-bio">行政管理专家，负责校园建设和后勤保障工作。曾参与学校新校区规划建设全过程，推动校园环境持续优化。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 优秀教师展示 -->
+    <section class="teachers-section">
+        <h2 class="section-title">优秀教师团队</h2>
+        <div class="teachers-grid">
+            <div class="teacher-card">
+                <div class="teacher-img" style="background-image: url('img/chinese_teacher1.jpg');">
+                </div>
+                <div class="teacher-info">
+                    <div class="teacher-name">陈老师</div>
+                    <div class="teacher-subject">语文特级教师</div>
+                    <p class="teacher-bio">省级语文学科带头人，教龄32年，多次获得"全国优秀语文教师"称号。指导学生在全国作文大赛中屡获殊荣。</p>
+                </div>
+            </div>
+            
+            <div class="teacher-card">
+                <div class="teacher-img" style="background-image: url('img/chinese_teacher2.jpg');">
+                </div>
+                <div class="teacher-info">
+                    <div class="teacher-name">王老师</div>
+                    <div class="teacher-subject">语文高级教师</div>
+                    <p class="teacher-bio">省级骨干教师，教龄25年，专注于高中语文教学研究。主编校本教材《文学鉴赏与写作》，深受学生喜爱。</p>
+                </div>
+            </div>
+            
+            <div class="teacher-card">
+                <div class="teacher-img" style="background-image: url('img/chinese_teacher3.jpg');">
+                </div>
+                <div class="teacher-info">
+                    <div class="teacher-name">张老师</div>
+                    <div class="teacher-subject">语文高级教师</div>
+                    <p class="teacher-bio">市级语文学科带头人，教龄18年。擅长文言文教学，所带班级高考语文成绩连续五年位居全市前列。</p>
+                </div>
+            </div>
+            
+            <div class="teacher-card">
+                <div class="teacher-img" style="background-image: url('img/chinese_teacher4.jpg');">
+                </div>
+                <div class="teacher-info">
+                    <div class="teacher-name">李老师</div>
+                    <div class="teacher-subject">语文高级教师</div>
+                    <p class="teacher-bio">省级教学能手，教龄20年。创新语文教学方法，开发的"情境式阅读教学法"在全市推广。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校园风光 -->
+    <section class="gallery-section">
+        <h2 class="section-title">校园风光</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="img/campus1.jpg" alt="校区正门">
+                <div class="gallery-caption">校区正门</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="img/campus2.jpg" alt="现代化教学楼">
+                <div class="gallery-caption">现代化教学楼</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="img/campus3.jpg" alt="图书馆">
+                <div class="gallery-caption">图书馆</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="img/campus4.jpg" alt="科技创新实验室">
+                <div class="gallery-caption">科技创新实验室</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="img/campus5.jpg" alt="标准运动场">
+                <div class="gallery-caption">标准运动场</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="img/campus6.jpg" alt="学生餐厅">
+                <div class="gallery-caption">学生餐厅</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact-section">
+        <div class="contact-card">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-methods">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <p>四川省宜宾市南溪区</p>
+                    <p>大观镇南观路1号</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <p>电话：0831-88888888</p>
+                    <p>传真：0831-88888889</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <p>邮箱：MFCJ45681@outlook.com</p>
+                    <p>网址：yb3z.net.cn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 友情链接 -->
+    <section class="links-section">
+        <h2 class="section-title">友情链接</h2>
+        <div class="links-container">
+            <div class="links-grid">
+                <a href="http://www.ybzsb.cn" target="_blank" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                    <div class="link-info">
+                        <h3>宜宾市招生考试网</h3>
+                        <p>www.ybzsb.cn</p>
+                    </div>
+                </a>
+                
+                <a href="http://www.sceea.cn" target="_blank" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                    <div class="link-info">
+                        <h3>四川省教育考试院</h3>
+                        <p>www.sceea.cn</p>
+                    </div>
+                </a>
+                
+                <a href="http://www.moe.gov.cn" target="_blank" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                    <div class="link-info">
+                        <h3>中国教育部</h3>
+                        <p>www.moe.gov.cn</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-badge">
+                <img src="new_img\xiao_hui_yuan.png" alt="四川省宜宾市第三中学校徽">
+            </div>
+            <div class="footer-text">四川省宜宾市第三中学（大观校区）</div>
+            <div class="footer-text">厚德博学 · 笃行致远</div>
+            <div class="copyright">
+                © 2023 四川省宜宾市第三中学 版权所有 | 创建于1926年
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻中心 - 四川省宜宾市第三中学（大观校区）</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #003049;
+            --primary-red: #d62828;
+            --primary-gold: #f77f00;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #5c6bc0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', 'Microsoft YaHei', 'Segoe UI', serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            overflow-x: hidden;
+        }
+        
+        /* 页面头部 */
+        .header {
+            background: linear-gradient(rgba(0, 48, 73, 0.85), rgba(0, 48, 73, 0.9)), url('home-bg.jpg') center/cover no-repeat;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            z-index: 10;
+        }
+        
+        .page-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background: var(--primary-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* 新闻内容区域 */
+        .news-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+        }
+        
+        .news-content {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary-red);
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .news-image {
+            height: 250px;
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .news-body {
+            padding: 25px;
+        }
+        
+        .news-title {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .news-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .news-date, .news-author {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        
+        .news-meta i {
+            margin-right: 5px;
+            color: var(--primary-red);
+        }
+        
+        .news-excerpt {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        
+        .read-more {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+        
+        .read-more:hover {
+            background: var(--primary-red);
+        }
+        
+        /* 侧边栏 */
+        .sidebar-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+        
+        .category-list {
+            list-style: none;
+        }
+        
+        .category-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .category-item:last-child {
+            border-bottom: none;
+        }
+        
+        .category-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: space-between;
+            transition: color 0.3s;
+        }
+        
+        .category-link:hover {
+            color: var(--primary-red);
+        }
+        
+        .category-count {
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.85rem;
+        }
+        
+        .recent-news-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .recent-news-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-thumb {
+            width: 80px;
+            height: 60px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .recent-content {
+            flex: 1;
+        }
+        
+        .recent-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .recent-title a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: color 0.3s;
+        }
+        
+        .recent-title a:hover {
+            color: var(--primary-red);
+        }
+        
+        .recent-date {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 6px 15px;
+            background: #f0f7ff;
+            border-radius: 20px;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .tag:hover {
+            background: var(--primary-red);
+            color: white;
+        }
+        
+        /* 分页 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .page-item {
+            margin: 0 5px;
+        }
+        
+        .page-link {
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary-blue);
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .page-link:hover, .page-link.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-badge {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+        }
+        
+        .footer-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .footer-text {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* 加载状态 */
+        .loading-container {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .loading-spinner {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            animation: spin 1.5s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+        
+        /* 错误提示 */
+        .error-message {
+            background: #ffecec;
+            border: 1px solid var(--primary-red);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: var(--primary-red);
+            margin: 20px 0;
+        }
+        
+        .error-message i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .news-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                order: -1;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                min-height: 250px;
+            }
+            
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .news-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .nav-container {
+                justify-content: space-around;
+            }
+            
+            .nav-item {
+                padding: 8px 15px;
+                margin: 5px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="page-title">新闻中心</h1>
+        </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">首页</a>
+            <a href="#" class="nav-item">学校概况</a>
+            <a href="news.html" class="nav-item">新闻中心</a>
+            <a href="#" class="nav-item">教育教学</a>
+            <a href="#" class="nav-item">招生信息</a>
+            <a href="#" class="nav-item">联系我们</a>
+        </div>
+    </nav>
+
+    <!-- 新闻内容区域 -->
+    <div class="news-container">
+        <main class="news-content">
+            <h2 class="section-title">最新动态</h2>
+            
+            <!-- 文章列表将通过articles.json加载 -->
+            <div id="articles-container">
+                <div class="loading-container">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                    <div class="loading-text">正在加载新闻内容...</div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <div class="page-item">
+                    <a href="#" class="page-link active">1</a>
+                </div>
+                <div class="page-item">
+                    <a href="#" class="page-link">2</a>
+                </div>
+                <div class="page-item">
+                    <a href="#" class="page-link">3</a>
+                </div>
+                <div class="page-item">
+                    <a href="#" class="page-link">下一页</a>
+                </div>
+            </div>
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">新闻分类</h3>
+                <ul class="category-list">
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <span>校园动态</span>
+                            <span class="category-count">42</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <span>教学科研</span>
+                            <span class="category-count">28</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <span>德育天地</span>
+                            <span class="category-count">35</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <span>招生信息</span>
+                            <span class="category-count">19</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <span>国际交流</span>
+                            <span class="category-count">15</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <span>校友风采</span>
+                            <span class="category-count">27</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">近期热门</h3>
+                <div class="recent-news-item">
+                    <div class="recent-thumb" style="background-image: url('img/news-thumb1.jpg');"></div>
+                    <div class="recent-content">
+                        <h4 class="recent-title"><a href="#">我校科技创新团队再获国家级奖项</a></h4>
+                        <div class="recent-date">2023-10-20</div>
+                    </div>
+                </div>
+                <div class="recent-news-item">
+                    <div class="recent-thumb" style="background-image: url('img/news-thumb2.jpg');"></div>
+                    <div class="recent-content">
+                        <h4 class="recent-title"><a href="#">2024年自主招生简章发布</a></h4>
+                        <div class="recent-date">2023-10-12</div>
+                    </div>
+                </div>
+                <div class="recent-news-item">
+                    <div class="recent-thumb" style="background-image: url('img/news-thumb3.jpg');"></div>
+                    <div class="recent-content">
+                        <h4 class="recent-title"><a href="#">校园文化艺术节盛大开幕</a></h4>
+                        <div class="recent-date">2023-09-28</div>
+                    </div>
+                </div>
+                <div class="recent-news-item">
+                    <div class="recent-thumb" style="background-image: url('img/news-thumb4.jpg');"></div>
+                    <div class="recent-content">
+                        <h4 class="recent-title"><a href="#">特级教师示范课活动圆满结束</a></h4>
+                        <div class="recent-date">2023-09-15</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">热门标签</h3>
+                <div class="tags-container">
+                    <a href="#" class="tag">高考</a>
+                    <a href="#" class="tag">科技创新</a>
+                    <a href="#" class="tag">校园活动</a>
+                    <a href="#" class="tag">教学成果</a>
+                    <a href="#" class="tag">国际交流</a>
+                    <a href="#" class="tag">教师发展</a>
+                    <a href="#" class="tag">学科竞赛</a>
+                    <a href="#" class="tag">招生政策</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-badge">
+                <img src="new_img/xiao_hui_yuan.png" alt="四川省宜宾市第三中学校徽">
+            </div>
+            <div class="footer-text">四川省宜宾市第三中学（大观校区）</div>
+            <div class="footer-text">厚德博学 · 笃行致远</div>
+            <div class="copyright">
+                © 2023 四川省宜宾市第三中学 版权所有 | 创建于1926年
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 解决路径问题的文章加载函数
+        async function loadArticles() {
+            const articlesContainer = document.getElementById('articles-container');
+            
+            try {
+                // 1. 加载文章索引 - 使用相对路径
+                const indexResponse = await fetch('./articles.json');
+                if (!indexResponse.ok) {
+                    throw new Error(`无法加载文章索引: ${indexResponse.status} ${indexResponse.statusText}`);
+                }
+                const articles = await indexResponse.json();
+                
+                // 2. 按日期降序排序
+                articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                // 3. 清空加载状态
+                articlesContainer.innerHTML = '';
+                
+                // 4. 渲染文章列表
+                for (const article of articles) {
+                    try {
+                        // 使用正确的相对路径加载文章
+                        const articlePath = `./${article.path}`;
+                        const contentResponse = await fetch(articlePath);
+                        
+                        if (!contentResponse.ok) {
+                            throw new Error(`文章加载失败: ${contentResponse.status} ${contentResponse.statusText}`);
+                        }
+                        
+                        const markdownContent = await contentResponse.text();
+                        
+                        // 解析摘要（取前200字符）
+                        const excerpt = markdownContent.slice(0, 200) + '...';
+                        
+                        // 创建文章卡片
+                        const articleCard = document.createElement('div');
+                        articleCard.className = 'news-card';
+                        articleCard.innerHTML = `
+                            <div class="news-image" style="background-image: url('${article.image}');"></div>
+                            <div class="news-body">
+                                <h3 class="news-title">${article.title}</h3>
+                                <div class="news-meta">
+                                    <span class="news-date"><i class="far fa-calendar"></i> ${article.date}</span>
+                                    <span class="news-author"><i class="far fa-user"></i> ${article.author}</span>
+                                </div>
+                                <p class="news-excerpt">${excerpt}</p>
+                                <a href="${articlePath}" class="read-more">阅读全文</a>
+                            </div>
+                        `;
+                        
+                        articlesContainer.appendChild(articleCard);
+                    } catch (error) {
+                        console.error(`加载文章失败: ${article.path}`, error);
+                        // 创建一个错误卡片
+                        const errorCard = document.createElement('div');
+                        errorCard.className = 'news-card';
+                        errorCard.innerHTML = `
+                            <div class="news-body">
+                                <h3 class="news-title">${article.title}</h3>
+                                <div class="error-message">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <p>加载文章内容失败: ${error.message}</p>
+                                </div>
+                            </div>
+                        `;
+                        articlesContainer.appendChild(errorCard);
+                    }
+                }
+                
+            } catch (error) {
+                console.error('加载文章失败:', error);
+                articlesContainer.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>加载新闻内容失败</h3>
+                        <p>请检查网络连接后刷新页面</p>
+                        <p>错误信息: ${error.message}</p>
+                        <button onclick="location.reload()" style="margin-top: 15px; padding: 8px 20px; background: var(--primary-red); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            重新加载
+                        </button>
+                    </div>
+                `;
+            }
+        }
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', loadArticles);
+    </script>
+</body>
+</html>
